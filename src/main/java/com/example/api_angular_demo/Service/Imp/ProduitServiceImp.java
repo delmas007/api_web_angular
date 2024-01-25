@@ -5,12 +5,24 @@ import com.example.api_angular_demo.Model.Produit;
 import com.example.api_angular_demo.Repository.ProduitRepository;
 import com.example.api_angular_demo.Service.ProduitService;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
+@Service
 public class ProduitServiceImp implements ProduitService {
 
     ProduitRepository produitRepository;
 
+
+    public List<ProduitDto> getAllProduits() {
+        List<Produit> produits = produitRepository.findAll();
+        return produits.stream()
+                .map(ProduitDto::fromEntity)
+                .collect(Collectors.toList());
+    }
 
     @Override
     public ProduitDto AjouterProduit(ProduitDto produitDto) {

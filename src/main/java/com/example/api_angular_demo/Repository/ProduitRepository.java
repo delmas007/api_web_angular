@@ -11,6 +11,6 @@ import java.util.Optional;
 public interface ProduitRepository extends JpaRepository<Produit,Integer> {
     Optional<Produit> findById(Integer id);
 
+    List<Produit> findAll();
 
-    List<Produit> findAllById(Integer id);
 }
