@@ -6,9 +6,7 @@ public interface ProduitService {
 
     ProduitDto AjouterProduit(ProduitDto produitDto);
 
-    ProduitDto ModifierProduit(String id,ProduitDto produitDto);
+    ProduitDto ModifierProduit(Integer id, ProduitDto produitDto);
 
-    ProduitDto MajProduit(String id,ProduitDto produitDto);
-
-    void SupprimerProduit(String id);
+    void SupprimerProduit(Integer id);
 }

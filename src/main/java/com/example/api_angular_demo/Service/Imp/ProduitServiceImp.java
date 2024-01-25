@@ -24,7 +24,7 @@ public class ProduitServiceImp implements ProduitService {
     }
 
     @Override
-    public ProduitDto ModifierProduit(String id, ProduitDto produitDto) {
+    public ProduitDto ModifierProduit(Integer id, ProduitDto produitDto) {
         Produit mod = produitRepository.findById(id).orElseThrow();
         mod.setChecked(produitDto.getChecked());
         mod.setName(produitDto.getName());
@@ -33,12 +33,7 @@ public class ProduitServiceImp implements ProduitService {
     }
 
     @Override
-    public ProduitDto MajProduit(String id, ProduitDto produitDto) {
-        return null;
-    }
-
-    @Override
-    public void SupprimerProduit(String id) {
-
+    public void SupprimerProduit(Integer id) {
+        produitRepository.deleteById(id);
     }
 }
