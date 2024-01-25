@@ -38,9 +38,20 @@ public class ProduitServiceImp implements ProduitService {
     @Override
     public ProduitDto ModifierProduit(Integer id, ProduitDto produitDto) {
         Produit mod = produitRepository.findById(id).orElseThrow();
-        mod.setChecked(produitDto.getChecked());
-        mod.setName(produitDto.getName());
-        mod.setPrice(produitDto.getPrice());
+        // Vérifiez si le champ "checked" dans le DTO n'est pas nul
+        if (produitDto.getChecked() != null) {
+            mod.setChecked(produitDto.getChecked());
+        }
+
+        // Vérifiez si le champ "name" dans le DTO n'est pas nul
+        if (produitDto.getName() != null) {
+            mod.setName(produitDto.getName());
+        }
+
+        // Vérifiez si le champ "price" dans le DTO n'est pas nul
+        if (produitDto.getPrice() != null) {
+            mod.setPrice(produitDto.getPrice());
+        }
         return ProduitDto.fromEntity(produitRepository.save(mod));
     }
 
