@@ -13,10 +13,16 @@ import java.util.List;
 public class ApiProduitImp implements ApiProduit {
 
     ProduitServiceImp produitServiceImp;
+
     @Override
     public ProduitDto ApiAjouterProduit(ProduitDto produitDto) {
 
         return produitServiceImp.AjouterProduit(produitDto);
+    }
+
+    @Override
+    public List<ProduitDto> ApiRechercherProduit(String name) {
+        return produitServiceImp.search(name);
     }
 
     @Override

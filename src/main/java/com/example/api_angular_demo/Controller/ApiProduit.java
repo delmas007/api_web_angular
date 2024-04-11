@@ -12,6 +12,9 @@ public interface ApiProduit {
     @PostMapping(value = Api+"ajouterProduit")
     ProduitDto ApiAjouterProduit(@RequestBody ProduitDto produitDto);
 
+    @GetMapping(value = Api+"search/{name}")
+    List<ProduitDto> ApiRechercherProduit(@PathVariable(name = "name") String name);
+
     @PatchMapping(value = Api+"modifierProduit/{id}")
     ProduitDto ApiModifierProduit(@PathVariable Integer id,@RequestBody ProduitDto produitDto);
 

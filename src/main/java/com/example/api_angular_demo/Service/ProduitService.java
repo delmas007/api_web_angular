@@ -11,6 +11,8 @@ public interface ProduitService {
 
     ProduitDto AjouterProduit(ProduitDto produitDto);
 
+    List<ProduitDto> search(String name);
+
     ProduitDto ModifierProduit(Integer id, ProduitDto produitDto);
 
     void SupprimerProduit(Integer id);

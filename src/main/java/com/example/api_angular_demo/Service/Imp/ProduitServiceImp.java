@@ -36,6 +36,14 @@ public class ProduitServiceImp implements ProduitService {
     }
 
     @Override
+    public List<ProduitDto> search(String name) {
+        List<Produit> produits = produitRepository.searchByName(name);
+        return produits.stream()
+                .map(ProduitDto::fromEntity)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public ProduitDto ModifierProduit(Integer id, ProduitDto produitDto) {
         Produit mod = produitRepository.findById(id).orElseThrow();
         // Vérifiez si le champ "checked" dans le DTO n'est pas nul
