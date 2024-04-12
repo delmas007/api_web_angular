@@ -18,4 +18,6 @@ public interface ProduitRepository extends JpaRepository<Produit,Integer> {
 
     List<Produit> findAll();
 
+    Optional<Produit> findById(int id);
+
 }

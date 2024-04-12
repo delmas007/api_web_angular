@@ -67,4 +67,11 @@ public class ProduitServiceImp implements ProduitService {
     public void SupprimerProduit(Integer id) {
         produitRepository.deleteById(id);
     }
+
+    @Override
+    public ProduitDto getProduitById(Integer id) {
+        Produit produit = produitRepository.findById(id).orElseThrow();
+//        System.out.println(produit);
+        return ProduitDto.fromEntity(produit);
+    }
 }

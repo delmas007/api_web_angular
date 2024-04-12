@@ -24,5 +24,8 @@ public interface ApiProduit {
     @GetMapping(value = Api+"produits")
     List<ProduitDto> Produit();
 
+    @GetMapping(value = Api+"produit/{id}")
+    ProduitDto getProduitById(@PathVariable Integer id);
+
 
 }

@@ -41,4 +41,9 @@ public class ApiProduitImp implements ApiProduit {
     public List<ProduitDto> Produit() {
         return produitServiceImp.getAllProduits();
     }
+
+    @Override
+    public ProduitDto getProduitById(Integer id) {
+        return produitServiceImp.getProduitById(id);
+    }
 }
