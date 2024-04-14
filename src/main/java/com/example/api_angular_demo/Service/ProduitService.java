@@ -15,6 +15,8 @@ public interface ProduitService {
 
     ProduitDto ModifierProduit(Integer id, ProduitDto produitDto);
 
+    ProduitDto ModifierProduitPut(Integer id, ProduitDto produitDto);
+
     void SupprimerProduit(Integer id);
 
     ProduitDto getProduitById(Integer id);

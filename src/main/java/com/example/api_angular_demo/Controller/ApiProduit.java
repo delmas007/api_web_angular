@@ -18,6 +18,9 @@ public interface ApiProduit {
     @PatchMapping(value = Api+"modifierProduit/{id}")
     ProduitDto ApiModifierProduit(@PathVariable Integer id,@RequestBody ProduitDto produitDto);
 
+    @PutMapping(value = Api+"modifierPutProduit/{id}")
+    ProduitDto ApiModifierPutProduit(@PathVariable Integer id,@RequestBody ProduitDto produitDto);
+
     @DeleteMapping(value = Api+"supprimerProduit/{id}")
     void SupprimerProduit(@PathVariable Integer id);
 

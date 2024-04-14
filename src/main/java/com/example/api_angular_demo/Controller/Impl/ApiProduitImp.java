@@ -32,6 +32,11 @@ public class ApiProduitImp implements ApiProduit {
     }
 
     @Override
+    public ProduitDto ApiModifierPutProduit(Integer id, ProduitDto produitDto) {
+        return produitServiceImp.ModifierProduitPut(id, produitDto);
+    }
+
+    @Override
     public void SupprimerProduit(Integer id) {
         produitServiceImp.SupprimerProduit(id);
 

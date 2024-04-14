@@ -64,6 +64,15 @@ public class ProduitServiceImp implements ProduitService {
     }
 
     @Override
+    public ProduitDto ModifierProduitPut(Integer id, ProduitDto produitDto) {
+        Produit mod = produitRepository.findById(id).orElseThrow();
+        mod.setName(produitDto.getName());
+        mod.setChecked(produitDto.getChecked());
+        mod.setPrice(produitDto.getPrice());
+        return ProduitDto.fromEntity(produitRepository.save(mod));
+    }
+
+    @Override
     public void SupprimerProduit(Integer id) {
         produitRepository.deleteById(id);
     }
